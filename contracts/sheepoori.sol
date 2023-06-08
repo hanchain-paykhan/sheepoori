@@ -13,7 +13,20 @@ contract Sheepoori is ERC721, ERC721URIStorage, Ownable {
     mapping(string => uint8) hashes;
     
     constructor() ERC721("Sheepoori", "SPR") {}
-
+    
+    /*
+     * @dev Mints a new NFT and assigns it to the recipient.
+     * 
+     * Requirements:
+     * - Only the contract owner can call this function.
+     * - The given hash must not have been used before.
+     * 
+     * @param recipient The address to receive the minted NFT.
+     * @param hash The unique hash associated with the NFT.
+     * @param metadata The metadata URI of the NFT.
+     * @return newItemId The ID of the newly minted NFT.
+     */
+     
     function mintItem(address recipient, string memory hash, string memory metadata)
         public
         onlyOwner
